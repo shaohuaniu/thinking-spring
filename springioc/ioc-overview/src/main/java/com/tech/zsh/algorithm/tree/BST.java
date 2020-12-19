@@ -42,7 +42,7 @@ public class BST<E extends Comparable> {
     /**
      * 节点内部类
      */
-    private class Node{
+    public class Node{
         private E e;
         /**左右孩子节点**/
         private Node left;
@@ -192,5 +192,19 @@ public class BST<E extends Comparable> {
         }
         size--;
 
+    }
+
+    public Node find(E e){
+        Node node = root;
+        while(node != null){
+            if(e.compareTo(node.e)==0){
+                return node;
+            }else if(e.compareTo(node.e)<0){
+                node = node.left;
+            }else if(e.compareTo(node.e)>0){
+                node = node.right;
+            }
+        }
+        return null;
     }
 }
